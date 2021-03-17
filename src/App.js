@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
 import Nav from "./components/Nav";
+import ProjectInformation from "./components/ProjectInformation";
 
 import hero_mobile from "./images/image-hero-mobile.jpg";
 import hero_desktop from "./images/image-hero-desktop.jpg";
+import logo_mastercraft from "./images/logo-mastercraft.svg";
 
 function App() {
   return (
@@ -12,7 +14,9 @@ function App() {
         <Nav />
       </Header>
       <Main>
-        <Content></Content>
+        <Content>
+          <ProjectInformation logo={logo_mastercraft} />
+        </Content>
       </Main>
     </Home>
   );
@@ -37,7 +41,20 @@ const Header = styled.header`
 
 const Main = styled.main`
   position: relative;
+  min-height: 100vh;
+  background-color: hsl(0, 0%, 96%);
 `;
-const Content = styled.div``;
+const Content = styled.div`
+  width: 48rem;
+  max-width: 90%;
+  position: absolute;
+  top: -10rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  margin: auto;
+
+  background-color: red;
+`;
 
 export default App;
