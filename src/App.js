@@ -1,13 +1,19 @@
 import styled from "styled-components";
 
+import Nav from "./components/Nav";
+
 import hero_mobile from "./images/image-hero-mobile.jpg";
 import hero_desktop from "./images/image-hero-desktop.jpg";
 
 function App() {
   return (
     <Home>
-      <Header></Header>
-      <main></main>
+      <Header>
+        <Nav />
+      </Header>
+      <Main>
+        <Content></Content>
+      </Main>
     </Home>
   );
 }
@@ -15,6 +21,7 @@ function App() {
 const Home = styled.div`
   min-height: 100vh;
 `;
+
 const Header = styled.header`
   height: 20rem;
   background-size: cover;
@@ -27,5 +34,10 @@ const Header = styled.header`
     background-image: url(${hero_desktop});
   }
 `;
+
+const Main = styled.main`
+  position: relative;
+`;
+const Content = styled.div``;
 
 export default App;

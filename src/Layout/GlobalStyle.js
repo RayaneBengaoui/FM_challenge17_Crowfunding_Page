@@ -10,6 +10,17 @@ const GlobalStyle = createGlobalStyle`
   html{
     font-family: 'Commissioner', sans-serif;
   }
+
+  ul{
+    list-style:none;
+    color:white;
+    font-size: .9rem;
+    font-weight: 400;
+
+    li{
+      cursor: pointer;
+    }
+  }
 `;
 
 export default GlobalStyle;
