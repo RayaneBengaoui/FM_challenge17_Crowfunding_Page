@@ -41,11 +41,11 @@ const Header = styled.header`
 
 const Main = styled.main`
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - 20rem);
   background-color: hsl(0, 0%, 96%);
 `;
 const Content = styled.div`
-  width: 48rem;
+  width: 45rem;
   max-width: 90%;
   position: absolute;
   top: -10rem;

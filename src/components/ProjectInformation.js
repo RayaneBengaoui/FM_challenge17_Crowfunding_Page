@@ -23,8 +23,6 @@ const ProjectInformation = ({ logo }) => {
 };
 
 const InformationContainer = styled.section`
-  width: 100%;
-
   border-radius: 8px;
   background-color: white;
   overflow: hidden;
@@ -32,12 +30,31 @@ const InformationContainer = styled.section`
 const LogoContainer = styled.div`
   position: absolute;
   z-index: 15;
-  top: -50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
 `;
-const TextContainer = styled.div``;
-const ButtonContainer = styled.div``;
+const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+  }
+
+  p {
+    color: hsl(0, 0%, 48%);
+    font-weight: 500;
+  }
+`;
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 2rem;
+`;
 const BackButton = styled.button`
   padding: 1rem 2rem;
   background-color: hsl(176, 50%, 47%);
@@ -54,7 +71,6 @@ const BookmarkButton = styled.button`
   border-radius: 3rem;
   font-weight: 700;
   position: relative;
-  margin-bottom: 2em;
 
   &:before {
     content: "";
