@@ -21,6 +21,14 @@ const GlobalStyle = createGlobalStyle`
       cursor: pointer;
     }
   }
+
+  button{
+    background: none;
+    border: none;
+    font-family: inherit;
+    outline: none;
+    cursor: pointer;
+  }
 `;
 
 export default GlobalStyle;

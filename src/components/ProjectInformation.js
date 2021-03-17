@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
-import logo from "../images/logo.svg";
-import hamburger_img from "../images/icon-hamburger.svg";
+import bookmark_icon from "../images/icon-bookmark.svg";
 
 const ProjectInformation = ({ logo }) => {
   return (
@@ -16,8 +15,8 @@ const ProjectInformation = ({ logo }) => {
         </p>
       </TextContainer>
       <ButtonContainer>
-        <BackButton />
-        <BookmarkButton />
+        <BackButton>Back this project</BackButton>
+        <BookmarkButton>Bookmark</BookmarkButton>
       </ButtonContainer>
     </InformationContainer>
   );
@@ -39,7 +38,36 @@ const LogoContainer = styled.div`
 `;
 const TextContainer = styled.div``;
 const ButtonContainer = styled.div``;
-const BackButton = styled.button``;
-const BookmarkButton = styled.button``;
+const BackButton = styled.button`
+  padding: 1rem 2rem;
+  background-color: hsl(176, 50%, 47%);
+  color: white;
+  border-radius: 3rem;
+  font-weight: 700;
+`;
+const BookmarkButton = styled.button`
+  padding: 1rem 0;
+  padding-left: 4rem;
+  padding-right: 2rem;
+  background-color: hsl(0, 0%, 90%);
+  color: hsl(0, 0%, 48%);
+  border-radius: 3rem;
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 2em;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3.2rem;
+    height: 3.2rem;
+    background-color: black;
+    background-image: url(${bookmark_icon});
+    background-position: center;
+    border-radius: 50%;
+  }
+`;
 
 export default ProjectInformation;
