@@ -26,6 +26,12 @@ const InformationContainer = styled.section`
   border-radius: 8px;
   background-color: white;
   overflow: hidden;
+  @media (max-width: 599px) {
+    padding: 0 1.5rem;
+  }
+  @media (max-width: 350px) {
+    padding: 0 0.5rem;
+  }
 `;
 const LogoContainer = styled.div`
   position: absolute;
@@ -48,12 +54,19 @@ const TextContainer = styled.div`
     color: hsl(0, 0%, 48%);
     font-weight: 500;
   }
+
+  @media (max-width: 599px) {
+    text-align: center;
+  }
 `;
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2.5rem 2rem;
+  @media (max-width: 599px) {
+    padding: 2rem 0rem;
+  }
 `;
 const BackButton = styled.button`
   padding: 1rem 2rem;
@@ -61,6 +74,10 @@ const BackButton = styled.button`
   color: white;
   border-radius: 3rem;
   font-weight: 700;
+
+  @media (max-width: 350px) {
+    padding: 1rem 1rem;
+  }
 `;
 const BookmarkButton = styled.button`
   padding: 1rem 0;
@@ -71,6 +88,12 @@ const BookmarkButton = styled.button`
   border-radius: 3rem;
   font-weight: 700;
   position: relative;
+  @media (max-width: 599px) {
+    padding: 0;
+    background-color: unset;
+    color: white;
+    margin-left: 1rem;
+  }
 
   &:before {
     content: "";
@@ -83,6 +106,9 @@ const BookmarkButton = styled.button`
     background-image: url(${bookmark_icon});
     background-position: center;
     border-radius: 50%;
+    @media (max-width: 599px) {
+      top: -100%;
+    }
   }
 `;
 
