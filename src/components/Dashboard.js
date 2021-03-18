@@ -91,6 +91,23 @@ const Stats = styled.div`
     }
   }
 `;
-const ProgressionBar = styled.progress``;
+const ProgressionBar = styled.progress`
+  -webkit-appearance: none;
+  color: hsl(176, 50%, 47%);
+  border-radius: 10px;
+  ::-webkit-progress-bar {
+    background-color: #e9e9e9;
+    border-radius: 10px;
+  }
+
+  ::-webkit-progress-value {
+    background-color: hsl(176, 50%, 47%);
+    border-radius: 10px;
+  }
+  ::-moz-progress-bar {
+    background-color: hsl(176, 50%, 47%);
+    border-radius: 10px;
+  }
+`;
 
 export default Dashboard;
