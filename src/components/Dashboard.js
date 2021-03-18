@@ -44,11 +44,12 @@ const DashboardContainer = styled.section`
   background: white;
   border-radius: 8px;
   padding: 2.5rem 2rem;
+
   @media (max-width: 599px) {
-    padding: 0 1.5rem;
+    padding: 0 1.5rem 1.5rem 1.5rem;
   }
   @media (max-width: 350px) {
-    padding: 0 0.5rem;
+    padding: 0 0.5rem 1.5rem 0.5rem;
   }
 `;
 const StatContainer = styled.div`
@@ -95,6 +96,13 @@ const ProgressionBar = styled.progress`
   -webkit-appearance: none;
   color: hsl(176, 50%, 47%);
   border-radius: 10px;
+  margin-top: 2rem;
+  width: 100%;
+
+  @media (max-width: 599px) {
+    margin-top: 1rem;
+  }
+
   ::-webkit-progress-bar {
     background-color: #e9e9e9;
     border-radius: 10px;
