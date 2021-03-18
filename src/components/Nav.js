@@ -49,6 +49,7 @@ const Options = styled.div`
   z-index: 150;
 `;
 const Mobile = styled.div`
+  cursor: pointer;
   @media (max-width: 599px) {
     display: block;
   }

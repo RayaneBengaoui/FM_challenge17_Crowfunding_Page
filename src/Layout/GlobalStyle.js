@@ -29,6 +29,12 @@ const GlobalStyle = createGlobalStyle`
     outline: none;
     cursor: pointer;
   }
+
+  p {
+    color: hsl(0, 0%, 48%);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
 `;
 
 export default GlobalStyle;

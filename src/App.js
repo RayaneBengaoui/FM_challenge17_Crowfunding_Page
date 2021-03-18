@@ -1,13 +1,19 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 import Nav from "./components/Nav";
 import ProjectInformation from "./components/ProjectInformation";
+import Dashboard from "./components/Dashboard";
 
 import hero_mobile from "./images/image-hero-mobile.jpg";
 import hero_desktop from "./images/image-hero-desktop.jpg";
 import logo_mastercraft from "./images/logo-mastercraft.svg";
 
 function App() {
+  const [backedMoney, setBackedMoney] = useState("89,914");
+  const [totalMoney, setTotalMoney] = useState("100,000");
+  const [backers, setBackers] = useState("5,007");
+  const [leftDay, setLeftDay] = useState("56");
   return (
     <Home>
       <Header>
@@ -16,6 +22,12 @@ function App() {
       <Main>
         <Content>
           <ProjectInformation logo={logo_mastercraft} />
+          <Dashboard
+            backedMoney={backedMoney}
+            totalMoney={totalMoney}
+            backers={backers}
+            leftDay={leftDay}
+          />
         </Content>
       </Main>
     </Home>
@@ -54,7 +66,7 @@ const Content = styled.div`
 
   margin: auto;
 
-  background-color: red;
+  /* background-color: red; */
 `;
 
 export default App;

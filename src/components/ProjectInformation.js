@@ -50,11 +50,6 @@ const TextContainer = styled.div`
     padding-bottom: 1rem;
   }
 
-  p {
-    color: hsl(0, 0%, 48%);
-    font-weight: 500;
-  }
-
   @media (max-width: 599px) {
     text-align: center;
   }
