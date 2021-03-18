@@ -1,17 +1,27 @@
 import styled from "styled-components";
+import { useState } from "react";
+
+import MobileMenu from "./MobileMenu";
 
 import logo from "../images/logo.svg";
-import hamburger_img from "../images/icon-hamburger.svg";
+import hamburger_icon from "../images/icon-hamburger.svg";
+import close_menu_icon from "../images/icon-close-menu.svg";
 
 const Nav = () => {
+  const [mobileMenu, setMobileMenu] = useState(false);
   return (
     <Navigation>
-      <div className="logo">
+      {mobileMenu ? <MobileMenu /> : ""}
+
+      <Logo>
         <img src={logo} alt="crowdfund logo" />
-      </div>
+      </Logo>
       <Options>
-        <Mobile>
-          <img src={hamburger_img} alt="hamburger navigation" />
+        <Mobile onClick={() => setMobileMenu((prevState) => !prevState)}>
+          <img
+            src={mobileMenu ? close_menu_icon : hamburger_icon}
+            alt="hamburger navigation"
+          />
         </Mobile>
         <Desktop>
           <li>About</li>
@@ -32,7 +42,12 @@ const Navigation = styled.nav`
   margin: auto;
 `;
 
-const Options = styled.div``;
+const Logo = styled.div`
+  z-index: 150;
+`;
+const Options = styled.div`
+  z-index: 150;
+`;
 const Mobile = styled.div`
   @media (max-width: 599px) {
     display: block;

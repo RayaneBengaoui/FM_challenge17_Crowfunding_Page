@@ -48,7 +48,7 @@ const Content = styled.div`
   width: 45rem;
   max-width: 90%;
   position: absolute;
-  top: -10rem;
+  top: -5rem;
   left: 50%;
   transform: translateX(-50%);
 
