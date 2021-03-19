@@ -15,6 +15,9 @@ function App() {
   const [totalMoney, setTotalMoney] = useState("100,000");
   const [backers, setBackers] = useState("5,007");
   const [leftDay, setLeftDay] = useState("56");
+  const [rewards, setRewards] = useState(["101", "64", "0"]);
+
+  //Create a data array to handle state like this : https://stackoverflow.com/questions/55987953/how-do-i-update-states-onchange-in-an-array-of-object-in-react-hooks
   return (
     <Home>
       <Header>
@@ -35,6 +38,8 @@ function App() {
   your posture and make you more comfortable while at work, helping you stay focused on the task at hand."
             descriptionSecond="Featuring artisan craftsmanship, the simplicity of design creates extra desk space below your computer 
   to allow notepads, pens, and USB sticks to be stored under the stand."
+            rewards={rewards}
+            setRewards={setRewards}
           />
         </Content>
       </Main>
