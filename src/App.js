@@ -66,17 +66,13 @@ const Header = styled.header`
 
 const Main = styled.main`
   position: relative;
-  min-height: calc(100vh - 20rem);
+  min-height: 80vh;
   background-color: hsl(0, 0%, 96%);
 `;
 const Content = styled.div`
   width: 45rem;
   max-width: 90%;
-  position: absolute;
-  top: -5rem;
-  left: 50%;
-  transform: translateX(-50%);
-
+  transform: translateY(-10rem);
   margin: auto;
 `;
 
