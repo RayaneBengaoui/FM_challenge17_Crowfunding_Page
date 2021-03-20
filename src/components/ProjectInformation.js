@@ -2,17 +2,15 @@ import styled from "styled-components";
 
 import bookmark_icon from "../images/icon-bookmark.svg";
 
-const ProjectInformation = ({ logo }) => {
+const ProjectInformation = ({ data }) => {
   return (
     <InformationContainer>
       <LogoContainer>
-        <img src={logo} alt="company logo" />
+        <img src={data.logo} alt="company logo" />
       </LogoContainer>
       <TextContainer>
-        <h1>Mastercraft Bamboo Monitor Riser</h1>
-        <p>
-          A beautiful & handcraft monitor stand to reduce neck and eye strain
-        </p>
+        <h1>{data.name}</h1>
+        <p>{data.intro}</p>
       </TextContainer>
       <ButtonContainer>
         <BackButton>Back this project</BackButton>

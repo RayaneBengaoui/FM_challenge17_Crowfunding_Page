@@ -6,18 +6,21 @@ import ProjectInformation from "./components/ProjectInformation";
 import Dashboard from "./components/Dashboard";
 import About from "./components/About";
 
+import { data } from "./data";
+
 import hero_mobile from "./images/image-hero-mobile.jpg";
 import hero_desktop from "./images/image-hero-desktop.jpg";
-import logo_mastercraft from "./images/logo-mastercraft.svg";
 
 function App() {
-  const [backedMoney, setBackedMoney] = useState("89,914");
-  const [totalMoney, setTotalMoney] = useState("100,000");
-  const [backers, setBackers] = useState("5,007");
-  const [leftDay, setLeftDay] = useState("56");
-  const [rewards, setRewards] = useState(["101", "64", "0"]);
+  const project_kpi = data.kpi;
+  const project_rewards = data.rewards;
 
-  //Create a data array to handle state like this : https://stackoverflow.com/questions/55987953/how-do-i-update-states-onchange-in-an-array-of-object-in-react-hooks
+  const [backedMoney, setBackedMoney] = useState(project_kpi.backedMoney);
+  const [totalMoney, setTotalMoney] = useState(project_kpi.totalMoney);
+  const [backers, setBackers] = useState(project_kpi.backers);
+  const [leftDay, setLeftDay] = useState(project_kpi.leftDay);
+  const [rewards, setRewards] = useState(project_rewards);
+
   return (
     <Home>
       <Header>
@@ -25,7 +28,7 @@ function App() {
       </Header>
       <Main>
         <Content>
-          <ProjectInformation logo={logo_mastercraft} />
+          <ProjectInformation data={data} />
           <Dashboard
             backedMoney={backedMoney}
             totalMoney={totalMoney}
@@ -33,11 +36,8 @@ function App() {
             leftDay={leftDay}
           />
           <About
-            descriptionFirst="  The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates your screen 
-  to a more comfortable viewing height. Placing your monitor at eye level has the potential to improve 
-  your posture and make you more comfortable while at work, helping you stay focused on the task at hand."
-            descriptionSecond="Featuring artisan craftsmanship, the simplicity of design creates extra desk space below your computer 
-  to allow notepads, pens, and USB sticks to be stored under the stand."
+            descriptionFirst={data.firstDescription}
+            descriptionSecond={data.secondDescription}
             rewards={rewards}
             setRewards={setRewards}
           />
@@ -78,8 +78,6 @@ const Content = styled.div`
   transform: translateX(-50%);
 
   margin: auto;
-
-  /* background-color: red; */
 `;
 
 export default App;

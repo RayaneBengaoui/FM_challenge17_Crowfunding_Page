@@ -1,8 +1,5 @@
 import styled from "styled-components";
 
-import logo from "../images/logo.svg";
-import hamburger_img from "../images/icon-hamburger.svg";
-
 const MobileMenu = () => {
   return (
     <MenuContainer>

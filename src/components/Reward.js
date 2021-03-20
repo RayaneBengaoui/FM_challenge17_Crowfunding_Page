@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const Reward = ({
+  id,
   name,
   minimumPrice,
   description,
@@ -15,7 +16,7 @@ const Reward = ({
       <p>
         <span>{leftNumber}</span>left
       </p>
-      <SelectButton onClick={() => {}}>Select Reward</SelectButton>
+      <SelectButton>Select Reward</SelectButton>
     </RewardContainer>
   );
 };

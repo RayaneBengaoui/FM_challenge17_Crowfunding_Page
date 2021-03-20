@@ -13,14 +13,19 @@ const About = ({
       <h2>About this project</h2>
       <p>{descriptionFirst}</p>
       <p>{descriptionSecond}</p>
-      <Reward
-        name="Bamboo Stand"
-        minimumPrice="25"
-        description="You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and 
-  you’ll be added to a special Backer member list."
-        leftNumber={rewards[0]}
-        setRewards={setRewards}
-      />
+
+      {rewards.map((reward) => {
+        return (
+          <Reward
+            id={reward.id}
+            name={reward.name}
+            minimumPrice={reward.minimumPrice}
+            description={reward.description}
+            leftNumber={reward.left}
+            setRewards={setRewards}
+          />
+        );
+      })}
     </AboutContainer>
   );
 };

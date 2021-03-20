@@ -1,9 +1,6 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 
-import logo from "../images/logo.svg";
-import hamburger_img from "../images/icon-hamburger.svg";
-
 const Dashboard = ({ backedMoney, totalMoney, backers, leftDay }) => {
   const [progressionBarValue, setprogressionBarValue] = useState(0);
 
