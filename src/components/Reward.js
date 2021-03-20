@@ -11,11 +11,11 @@ const Reward = ({
   return (
     <RewardContainer>
       <h3>{name}</h3>
-      <p>{`Pledge $${minimumPrice} or more`}</p>
+      <PledgeText>{`Pledge $${minimumPrice} or more`}</PledgeText>
       <p>{description}</p>
-      <p>
+      <LeftText>
         <span>{leftNumber}</span>left
-      </p>
+      </LeftText>
       <SelectButton>Select Reward</SelectButton>
     </RewardContainer>
   );
@@ -24,7 +24,23 @@ const Reward = ({
 const RewardContainer = styled.div`
   border-radius: 10px;
   border: solid lightgray 1px;
-  padding: 2rem 1rem;
+  padding: 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+`;
+const PledgeText = styled.p`
+  padding-top: 0.3rem;
+  color: hsl(176, 50%, 47%);
+  font-weight: 500;
+`;
+const LeftText = styled.p`
+  display: flex;
+  align-items: center;
+  span {
+    font-weight: 700;
+    color: black;
+    font-size: 2rem;
+    padding-right: 0.4rem;
+  }
 `;
 
 const SelectButton = styled.button`

@@ -36,6 +36,14 @@ const AboutContainer = styled.div`
   border-radius: 8px;
   padding: 2.5rem 2rem;
 
+  h2 {
+    padding-bottom: 2rem;
+  }
+
+  p {
+    padding-bottom: 2rem;
+  }
+
   @media (max-width: 599px) {
     padding: 0 1.5rem 1.5rem 1.5rem;
   }

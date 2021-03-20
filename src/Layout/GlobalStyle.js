@@ -34,6 +34,12 @@ const GlobalStyle = createGlobalStyle`
     color: hsl(0, 0%, 48%);
     font-weight: 500;
     font-size: 0.9rem;
+    line-height:1.8;
+  }
+
+  h3{
+    font-size:1rem;
+    
   }
 `;
 
