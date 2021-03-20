@@ -38,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h3{
-    font-size:1rem;
+
     
   }
 `;

@@ -10,15 +10,19 @@ const Reward = ({
 }) => {
   return (
     <RewardContainer leftNumber={leftNumber}>
-      <h3>{name}</h3>
-      <PledgeText>{`Pledge $${minimumPrice} or more`}</PledgeText>
+      <FlexContainerTop>
+        <h3>{name}</h3>
+        <PledgeText>{`Pledge $${minimumPrice} or more`}</PledgeText>
+      </FlexContainerTop>
       <p>{description}</p>
-      <LeftText>
-        <span>{leftNumber}</span>left
-      </LeftText>
-      <SelectButton leftNumber={leftNumber}>
-        {leftNumber === "0" ? "Out of stock" : "Select Reward"}
-      </SelectButton>
+      <FlexContainerBottom>
+        <LeftText>
+          <span>{leftNumber}</span>left
+        </LeftText>
+        <SelectButton leftNumber={leftNumber}>
+          {leftNumber === "0" ? "Out of stock" : "Select Reward"}
+        </SelectButton>
+      </FlexContainerBottom>
     </RewardContainer>
   );
 };
@@ -30,10 +34,29 @@ const RewardContainer = styled.div`
   margin-bottom: 1.5rem;
   opacity: ${(props) => (props.leftNumber !== "0" ? "1" : "0.5")};
 `;
+
+const FlexContainerTop = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 599px) {
+    flex-direction: column;
+  }
+`;
+const FlexContainerBottom = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  @media (max-width: 599px) {
+    flex-direction: column;
+  }
+`;
 const PledgeText = styled.p`
-  padding-top: 0.3rem;
   color: hsl(176, 50%, 47%);
   font-weight: 500;
+  @media (max-width: 599px) {
+    padding-top: 0.3rem;
+  }
 `;
 const LeftText = styled.p`
   display: flex;

@@ -45,10 +45,10 @@ const AboutContainer = styled.div`
   }
 
   @media (max-width: 599px) {
-    padding: 0 1.5rem 1.5rem 1.5rem;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
   }
   @media (max-width: 350px) {
-    padding: 0 0.5rem 1.5rem 0.5rem;
+    padding: 2rem 0.5rem 1.5rem 0.5rem;
   }
 `;
 
