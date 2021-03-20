@@ -9,14 +9,16 @@ const Reward = ({
   setRewards,
 }) => {
   return (
-    <RewardContainer>
+    <RewardContainer leftNumber={leftNumber}>
       <h3>{name}</h3>
       <PledgeText>{`Pledge $${minimumPrice} or more`}</PledgeText>
       <p>{description}</p>
       <LeftText>
         <span>{leftNumber}</span>left
       </LeftText>
-      <SelectButton>Select Reward</SelectButton>
+      <SelectButton leftNumber={leftNumber}>
+        {leftNumber === "0" ? "Out of stock" : "Select Reward"}
+      </SelectButton>
     </RewardContainer>
   );
 };
@@ -26,6 +28,7 @@ const RewardContainer = styled.div`
   border: solid lightgray 1px;
   padding: 2rem 1.5rem;
   margin-bottom: 1.5rem;
+  opacity: ${(props) => (props.leftNumber !== "0" ? "1" : "0.5")};
 `;
 const PledgeText = styled.p`
   padding-top: 0.3rem;
@@ -45,7 +48,8 @@ const LeftText = styled.p`
 
 const SelectButton = styled.button`
   padding: 1rem 2rem;
-  background-color: hsl(176, 50%, 47%);
+  background-color: ${(props) =>
+    props.leftNumber !== "0" ? "hsl(176, 50%, 47%)" : "gray"};
   color: white;
   border-radius: 3rem;
   font-weight: 700;
