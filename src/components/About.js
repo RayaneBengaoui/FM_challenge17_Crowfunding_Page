@@ -7,6 +7,7 @@ const About = ({
   descriptionSecond,
   rewards,
   setRewards,
+  loadDetailHandler,
 }) => {
   return (
     <AboutContainer>
@@ -23,6 +24,7 @@ const About = ({
             description={reward.description}
             leftNumber={reward.left}
             setRewards={setRewards}
+            loadDetailHandler={loadDetailHandler}
           />
         );
       })}

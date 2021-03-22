@@ -9,6 +9,16 @@ const GlobalStyle = createGlobalStyle`
 
   html{
     font-family: 'Commissioner', sans-serif;
+    &::-webkit-scrollbar{
+        width:0.5rem;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        background-color: darkgrey;
+    }
+    &::-webkit-scrollbar-track {
+        background: white;
+    }
   }
 
   ul{

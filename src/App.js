@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import ProjectInformation from "./components/ProjectInformation";
 import Dashboard from "./components/Dashboard";
 import About from "./components/About";
+import BackPanel from "./components/BackPanel";
 
 import { data } from "./data";
 
@@ -20,6 +21,12 @@ function App() {
   const [backers, setBackers] = useState(project_kpi.backers);
   const [leftDay, setLeftDay] = useState(project_kpi.leftDay);
   const [rewards, setRewards] = useState(project_rewards);
+  const [backPanel, setBackPanel] = useState(false);
+
+  const loadDetailHandler = () => {
+    document.body.style.overflow = "hidden";
+    setBackPanel(true);
+  };
 
   return (
     <Home>
@@ -40,9 +47,19 @@ function App() {
             descriptionSecond={data.secondDescription}
             rewards={rewards}
             setRewards={setRewards}
+            loadDetailHandler={loadDetailHandler}
           />
         </Content>
       </Main>
+      {backPanel ? (
+        <BackPanel
+          rewards={rewards}
+          setRewards={setRewards}
+          setBackPanel={setBackPanel}
+        />
+      ) : (
+        ""
+      )}
     </Home>
   );
 }

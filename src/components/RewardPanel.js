@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
-const Reward = ({
+const RewardPanel = ({
   id,
   name,
   minimumPrice,
   description,
   leftNumber,
   setRewards,
-  loadDetailHandler,
 }) => {
   return (
     <RewardContainer leftNumber={leftNumber}>
@@ -20,7 +19,7 @@ const Reward = ({
         <LeftText>
           <span>{leftNumber}</span>left
         </LeftText>
-        <SelectButton leftNumber={leftNumber} onClick={loadDetailHandler}>
+        <SelectButton leftNumber={leftNumber}>
           {leftNumber === "0" ? "Out of stock" : "Select Reward"}
         </SelectButton>
       </FlexContainerBottom>
@@ -83,4 +82,4 @@ const SelectButton = styled.button`
   }
 `;
 
-export default Reward;
+export default RewardPanel;
