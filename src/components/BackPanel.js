@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 import RewardPanel from "./RewardPanel";
 
-const BackPanel = ({ rewards, setRewards, setBackPanel }) => {
+import cross_icon from "../images/icon-close-modal.svg";
+
+const BackPanel = ({ rewards, setRewards, setBackPanel, supportText }) => {
   const exitDetailHandler = (e) => {
     const element = e.target;
     if (element.classList.contains("shadow")) {
@@ -13,6 +15,12 @@ const BackPanel = ({ rewards, setRewards, setBackPanel }) => {
   return (
     <BackPanelContainer className="shadow" onClick={exitDetailHandler}>
       <RewardContainer>
+        <TopContainer>
+          <h2>Back this project</h2>
+          <img src={cross_icon} alt="exit cross" />
+        </TopContainer>
+
+        <p>{supportText}</p>
         {rewards.map((reward) => {
           return (
             <RewardPanel
@@ -52,12 +60,41 @@ const BackPanelContainer = styled.div`
 `;
 const RewardContainer = styled.div`
   position: absolute;
-  width: 80%;
-  left: 10%;
-
+  width: 45rem;
+  left: 50%;
+  transform: translateX(-50%);
   top: 10%;
   background-color: white;
   border-radius: 10px;
+
+  padding: 2.5rem 2rem;
+
+  h2 {
+    padding-bottom: 1rem;
+  }
+
+  p {
+    padding-bottom: 2rem;
+  }
+
+  @media (max-width: 750px) {
+    width: 80%;
+    left: 10%;
+    transform: unset;
+  }
+
+  @media (max-width: 599px) {
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+  }
+  @media (max-width: 350px) {
+    padding: 2rem 0.5rem 1.5rem 0.5rem;
+  }
+`;
+
+const TopContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export default BackPanel;

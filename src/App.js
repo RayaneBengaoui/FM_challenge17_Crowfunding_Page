@@ -56,6 +56,7 @@ function App() {
           rewards={rewards}
           setRewards={setRewards}
           setBackPanel={setBackPanel}
+          supportText={data.supportText}
         />
       ) : (
         ""
