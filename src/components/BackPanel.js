@@ -73,7 +73,7 @@ const RewardContainer = styled.div`
     padding-bottom: 1rem;
   }
 
-  p {
+  > p {
     padding-bottom: 2rem;
   }
 
