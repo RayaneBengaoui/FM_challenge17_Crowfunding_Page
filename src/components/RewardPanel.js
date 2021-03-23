@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 const RewardPanel = ({
   id,
@@ -8,9 +9,11 @@ const RewardPanel = ({
   leftNumber,
   setRewards,
 }) => {
+  const [isToggled, setIsToggled] = useState(false);
+
   return (
     <RewardContainer leftNumber={leftNumber}>
-      <RewardClose>
+      <RewardClose onClick={() => setIsToggled((prevToggle) => !prevToggle)}>
         <FlexContainerTop>
           <CircleButton>
             <div className="outer-circle">
@@ -28,7 +31,7 @@ const RewardPanel = ({
           <span>{leftNumber}</span>left
         </LeftText>
       </RewardClose>
-      <RewardOpen>
+      <RewardOpen isToggled={isToggled}>
         <p>Enter your pledge</p>
         <SubmitContainer>
           <InputContainer>
@@ -53,6 +56,7 @@ const RewardContainer = styled.div`
 const RewardClose = styled.div`
   padding: 2rem 1.5rem;
   padding-bottom: 1rem;
+  cursor: pointer;
 `;
 
 const FlexContainerTop = styled.div`
@@ -117,15 +121,17 @@ const LeftText = styled.p`
 `;
 
 const RewardOpen = styled.div`
+  display: ${(props) => (props.isToggled ? "" : "none")};
   border-top: solid lightgray 1px;
   padding: 2rem 1.5rem;
+
   > p {
     text-align: center;
     padding-bottom: 1rem;
   }
 
   @media (min-width: 750px) {
-    display: flex;
+    /* display: flex; */
     justify-content: space-between;
     align-items: center;
     > p {
