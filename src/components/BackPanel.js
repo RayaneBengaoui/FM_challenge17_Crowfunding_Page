@@ -7,7 +7,10 @@ import cross_icon from "../images/icon-close-modal.svg";
 const BackPanel = ({ rewards, setRewards, setBackPanel, supportText }) => {
   const exitDetailHandler = (e) => {
     const element = e.target;
-    if (element.classList.contains("shadow")) {
+    if (
+      element.classList.contains("shadow") ||
+      element.classList.contains("exit")
+    ) {
       document.body.style.overflow = "auto";
       setBackPanel(false);
     }
@@ -17,7 +20,13 @@ const BackPanel = ({ rewards, setRewards, setBackPanel, supportText }) => {
       <RewardContainer>
         <TopContainer>
           <h2>Back this project</h2>
-          <img src={cross_icon} alt="exit cross" />
+
+          <img
+            className="exit"
+            onClick={exitDetailHandler}
+            src={cross_icon}
+            alt="exit cross"
+          />
         </TopContainer>
 
         <p>{supportText}</p>
@@ -69,10 +78,6 @@ const RewardContainer = styled.div`
 
   padding: 2.5rem 2rem;
 
-  h2 {
-    padding-bottom: 1rem;
-  }
-
   > p {
     padding-bottom: 2rem;
   }
@@ -95,6 +100,10 @@ const TopContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1rem;
+  img {
+    cursor: pointer;
+  }
 `;
 
 export default BackPanel;
