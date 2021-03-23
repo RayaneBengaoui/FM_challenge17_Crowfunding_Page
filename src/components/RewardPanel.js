@@ -15,7 +15,7 @@ const RewardPanel = ({
     <RewardContainer leftNumber={leftNumber}>
       <RewardClose onClick={() => setIsToggled((prevToggle) => !prevToggle)}>
         <FlexContainerTop>
-          <CircleButton>
+          <CircleButton isToggled={isToggled}>
             <div className="outer-circle">
               <div className="inner-circle"></div>
             </div>
@@ -77,7 +77,8 @@ const CircleButton = styled.div`
     align-items: center;
 
     .inner-circle {
-      display: none;
+      transition: transform 0.3s ease-in-out;
+      transform: ${(props) => (props.isToggled ? "scale(1)" : "scale(0)")};
       width: 50%;
       height: 50%;
       border-radius: 50%;
@@ -121,9 +122,13 @@ const LeftText = styled.p`
 `;
 
 const RewardOpen = styled.div`
-  display: ${(props) => (props.isToggled ? "" : "none")};
   border-top: solid lightgray 1px;
-  padding: 2rem 1.5rem;
+  transition: padding 0.3s ease-in-out, opacity 0.2s ease-in-out,
+    max-height 0.3s ease-in-out;
+  padding: ${(props) => (props.isToggled ? "2rem 1.5rem" : "0rem 0rem")};
+  opacity: ${(props) => (props.isToggled ? "1" : "0")};
+  max-height: ${(props) => (props.isToggled ? "250px" : "0px")};
+  pointer-events: ${(props) => (props.isToggled ? "auto" : "none")};
 
   > p {
     text-align: center;
@@ -131,7 +136,7 @@ const RewardOpen = styled.div`
   }
 
   @media (min-width: 750px) {
-    /* display: flex; */
+    display: flex;
     justify-content: space-between;
     align-items: center;
     > p {
