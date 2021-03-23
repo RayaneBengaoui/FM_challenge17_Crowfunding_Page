@@ -47,9 +47,11 @@ const GlobalStyle = createGlobalStyle`
     line-height:1.8;
   }
 
-  h3{
+  input{
+    outline:none;
+    border:none;
+    font-family:inherit;
 
-    
   }
 `;
 
