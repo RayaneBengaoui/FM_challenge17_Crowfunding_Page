@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 import MobileMenu from "./MobileMenu";
 
@@ -11,7 +12,7 @@ const Nav = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   return (
     <Navigation>
-      {mobileMenu ? <MobileMenu /> : ""}
+      <AnimatePresence>{mobileMenu && <MobileMenu />}</AnimatePresence>
 
       <Logo>
         <img src={logo} alt="crowdfund logo" />

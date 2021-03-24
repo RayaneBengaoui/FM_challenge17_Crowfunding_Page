@@ -60,6 +60,8 @@ function App() {
             setBackPanel={setBackPanel}
             supportText={data.supportText}
             isOpen={backPanel}
+            setBackers={setBackers}
+            setBackedMoney={setBackedMoney}
           />
         )}
       </AnimatePresence>

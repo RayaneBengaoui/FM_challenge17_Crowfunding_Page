@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { fade, fadeFromTop } from "../animation";
+import { fade, fadeFromTopPercentage } from "../animation";
 
 import RewardPanel from "./RewardPanel";
 
@@ -12,6 +12,8 @@ const BackPanel = ({
   setBackPanel,
   supportText,
   isOpen,
+  setBackers,
+  setBackedMoney,
 }) => {
   const exitDetailHandler = (e) => {
     const element = e.target;
@@ -32,7 +34,7 @@ const BackPanel = ({
       animate="show"
       exit="exit"
     >
-      <RewardContainer variants={fadeFromTop}>
+      <RewardContainer variants={fadeFromTopPercentage}>
         <TopContainer>
           <h2>Back this project</h2>
 
@@ -54,6 +56,9 @@ const BackPanel = ({
               description={reward.description}
               leftNumber={reward.left}
               setRewards={setRewards}
+              rewards={rewards}
+              setBackers={setBackers}
+              setBackedMoney={setBackedMoney}
             />
           );
         })}

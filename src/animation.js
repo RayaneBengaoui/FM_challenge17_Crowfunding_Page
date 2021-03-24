@@ -1,4 +1,25 @@
-export const fadeFromTop = {
+export const fade = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+      ease: "easeOut",
+      when: "beforeChildren",
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.3,
+      when: "afterChildren",
+    },
+  },
+};
+
+export const fadeFromTopPercentage = {
   hidden: {
     top: "0%",
 
@@ -22,23 +43,26 @@ export const fadeFromTop = {
     },
   },
 };
-export const fade = {
+
+export const fadeFromTopAbsolute = {
   hidden: {
+    y: -100,
     opacity: 0,
   },
   show: {
+    y: 0,
+
     opacity: 1,
     transition: {
-      duration: 0.3,
+      duration: 0.7,
       ease: "easeOut",
-      when: "beforeChildren",
     },
   },
   exit: {
+    y: -100,
     opacity: 0,
     transition: {
-      duration: 0.3,
-      when: "afterChildren",
+      duration: 0.7,
     },
   },
 };

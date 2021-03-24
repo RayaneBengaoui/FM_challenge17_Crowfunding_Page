@@ -1,9 +1,11 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
+import { fade, fadeFromTopAbsolute } from "../animation";
 
 const MobileMenu = () => {
   return (
-    <MenuContainer>
-      <OptionContainer>
+    <MenuContainer variants={fade} initial="hidden" animate="show" exit="exit">
+      <OptionContainer variants={fadeFromTopAbsolute}>
         <ul>
           <li>About</li>
           <li>Discover</li>
@@ -14,7 +16,7 @@ const MobileMenu = () => {
   );
 };
 
-const MenuContainer = styled.div`
+const MenuContainer = styled(motion.div)`
   position: absolute;
   top: 0rem;
   left: 0;
@@ -26,11 +28,12 @@ const MenuContainer = styled.div`
     display: none;
   }
 `;
-const OptionContainer = styled.div`
+const OptionContainer = styled(motion.div)`
   width: 90%;
   margin: auto;
   margin-top: 6.5rem;
   border-radius: 10px;
+  top: 5rem;
 
   background-color: white;
   ul {

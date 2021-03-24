@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useRef } from "react";
+
+import { numberWithCommas } from "../utils";
 
 const RewardPanel = ({
   id,
@@ -8,8 +10,29 @@ const RewardPanel = ({
   description,
   leftNumber,
   setRewards,
+  rewards,
+  setBackers,
+  setBackedMoney,
 }) => {
   const [isToggled, setIsToggled] = useState(false);
+  const numberInput = useRef(null);
+
+  const handlePayment = () => {
+    // console.log(numberInput.current.value);
+    // console.log(rewards);
+    // console.log(id);
+
+    let rewards_copy = [...rewards];
+    for (let key in rewards_copy) {
+      if (rewards_copy[key].id === id) {
+        rewards_copy[key].left -= "1";
+      }
+    }
+    setRewards(rewards_copy);
+    setBackers((prevState) =>
+      numberWithCommas((+prevState.replace(",", "") + 1).toString())
+    );
+  };
 
   return (
     <RewardContainer leftNumber={leftNumber}>
@@ -36,9 +59,9 @@ const RewardPanel = ({
         <SubmitContainer>
           <InputContainer>
             <p>$</p>
-            <input type="number" min={minimumPrice} />
+            <input type="number" ref={numberInput} min={minimumPrice} />
           </InputContainer>
-          <SubmitButton>Continue</SubmitButton>
+          <SubmitButton onClick={handlePayment}>Continue</SubmitButton>
         </SubmitContainer>
       </RewardOpen>
     </RewardContainer>
