@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import bookmark_icon from "../images/icon-bookmark.svg";
 
-const ProjectInformation = ({ data }) => {
+const ProjectInformation = ({ data, loadDetailHandler }) => {
   return (
     <InformationContainer>
       <LogoContainer>
@@ -13,7 +13,7 @@ const ProjectInformation = ({ data }) => {
         <p>{data.intro}</p>
       </TextContainer>
       <ButtonContainer>
-        <BackButton>Back this project</BackButton>
+        <BackButton onClick={loadDetailHandler}>Back this project</BackButton>
         <BookmarkButton>Bookmark</BookmarkButton>
       </ButtonContainer>
     </InformationContainer>

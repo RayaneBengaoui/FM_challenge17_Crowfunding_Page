@@ -66,3 +66,27 @@ export const fadeFromTopAbsolute = {
     },
   },
 };
+
+export const fadeCompletedModal = {
+  hidden: {
+    top: "0%",
+
+    opacity: 0,
+  },
+  show: {
+    top: "50%",
+
+    opacity: 1,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  },
+  exit: {
+    top: "0%",
+    opacity: 0,
+    transition: {
+      duration: 0.7,
+    },
+  },
+};

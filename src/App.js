@@ -7,6 +7,7 @@ import ProjectInformation from "./components/ProjectInformation";
 import Dashboard from "./components/Dashboard";
 import About from "./components/About";
 import BackPanel from "./components/BackPanel";
+import CompletedModal from "./components/CompletedModal";
 
 import { data } from "./data";
 
@@ -23,6 +24,7 @@ function App() {
   const [leftDay, setLeftDay] = useState(project_kpi.leftDay);
   const [rewards, setRewards] = useState(project_rewards);
   const [backPanel, setBackPanel] = useState(false);
+  const [completedModal, setCompletedModal] = useState(false);
 
   const loadDetailHandler = () => {
     document.body.style.overflow = "hidden";
@@ -36,7 +38,10 @@ function App() {
       </Header>
       <Main>
         <Content>
-          <ProjectInformation data={data} />
+          <ProjectInformation
+            data={data}
+            loadDetailHandler={loadDetailHandler}
+          />
           <Dashboard
             backedMoney={backedMoney}
             totalMoney={totalMoney}
@@ -62,6 +67,13 @@ function App() {
             isOpen={backPanel}
             setBackers={setBackers}
             setBackedMoney={setBackedMoney}
+            setCompletedModal={setCompletedModal}
+          />
+        )}
+        {completedModal && (
+          <CompletedModal
+            name={data.name}
+            setCompletedModal={setCompletedModal}
           />
         )}
       </AnimatePresence>

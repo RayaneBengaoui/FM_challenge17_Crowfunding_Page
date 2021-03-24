@@ -14,6 +14,7 @@ const BackPanel = ({
   isOpen,
   setBackers,
   setBackedMoney,
+  setCompletedModal,
 }) => {
   const exitDetailHandler = (e) => {
     const element = e.target;
@@ -59,6 +60,8 @@ const BackPanel = ({
               rewards={rewards}
               setBackers={setBackers}
               setBackedMoney={setBackedMoney}
+              setBackPanel={setBackPanel}
+              setCompletedModal={setCompletedModal}
             />
           );
         })}

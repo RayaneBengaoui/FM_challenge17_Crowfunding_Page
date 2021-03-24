@@ -13,15 +13,13 @@ const RewardPanel = ({
   rewards,
   setBackers,
   setBackedMoney,
+  setBackPanel,
+  setCompletedModal,
 }) => {
   const [isToggled, setIsToggled] = useState(false);
   const numberInput = useRef(null);
 
   const handlePayment = () => {
-    console.log(numberInput.current.value);
-    // console.log(rewards);
-    // console.log(id);
-
     // Update the number of rewards in the BackPanel
     let rewards_copy = [...rewards];
     for (let key in rewards_copy) {
@@ -42,6 +40,9 @@ const RewardPanel = ({
         +prevState.replace(",", "") + Number(numberInput.current.value)
       )
     );
+    document.body.style.overflow = "auto";
+    setBackPanel(false);
+    setCompletedModal(true);
   };
 
   return (
