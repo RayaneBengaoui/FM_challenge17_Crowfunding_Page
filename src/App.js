@@ -57,7 +57,7 @@ function App() {
           />
         </Content>
       </Main>
-      <AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
         {backPanel && (
           <BackPanel
             rewards={rewards}
@@ -70,6 +70,8 @@ function App() {
             setCompletedModal={setCompletedModal}
           />
         )}
+      </AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
         {completedModal && (
           <CompletedModal
             name={data.name}

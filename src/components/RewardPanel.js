@@ -17,9 +17,15 @@ const RewardPanel = ({
   setCompletedModal,
 }) => {
   const [isToggled, setIsToggled] = useState(false);
+  const [isValidInput, setIsValidInput] = useState(true);
   const numberInput = useRef(null);
 
   const handlePayment = () => {
+    if (numberInput.current.value === "") {
+      setIsValidInput(false);
+      return;
+    }
+    setIsValidInput(true);
     // Update the number of rewards in the BackPanel
     let rewards_copy = [...rewards];
     for (let key in rewards_copy) {
@@ -68,7 +74,7 @@ const RewardPanel = ({
       <RewardOpen isToggled={isToggled}>
         <p>Enter your pledge</p>
         <SubmitContainer>
-          <InputContainer>
+          <InputContainer isValidInput={isValidInput}>
             <p>$</p>
             <input type="number" ref={numberInput} min={minimumPrice} />
           </InputContainer>
@@ -187,7 +193,8 @@ const SubmitContainer = styled.div`
   }
 `;
 const InputContainer = styled.div`
-  border: solid lightgray 1px;
+  border: ${(props) =>
+    props.isValidInput ? "solid lightgray 1px" : "solid red 1px"};
   border-radius: 3rem;
   padding: 0rem 1rem;
   display: flex;
@@ -196,8 +203,15 @@ const InputContainer = styled.div`
   flex-basis: 30%;
   margin-right: 1.5rem;
 
+  :focus-within {
+    border: solid lightgray 1px;
+    p {
+      color: lightgray;
+    }
+  }
+
   p {
-    color: lightgray;
+    color: ${(props) => (props.isValidInput ? "lightgray" : "red")};
     font-weight: 700;
   }
   input {
