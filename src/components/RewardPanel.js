@@ -36,7 +36,7 @@ const RewardPanel = ({
         <SubmitContainer>
           <InputContainer>
             <p>$</p>
-            <input type="text" />
+            <input type="number" min={minimumPrice} />
           </InputContainer>
           <SubmitButton>Continue</SubmitButton>
         </SubmitContainer>
@@ -171,6 +171,18 @@ const InputContainer = styled.div`
     width: 100%;
     font-weight: 700;
     color: black;
+
+    /* Chrome, Safari, Edge, Opera */
+    ::-webkit-outer-spin-button,
+    ::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    [type="number"] {
+      -moz-appearance: textfield;
+    }
   }
 
   @media (min-width: 750px) {

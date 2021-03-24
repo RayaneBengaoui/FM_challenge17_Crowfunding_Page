@@ -57,6 +57,7 @@ function App() {
           setRewards={setRewards}
           setBackPanel={setBackPanel}
           supportText={data.supportText}
+          isOpen={backPanel}
         />
       ) : (
         ""

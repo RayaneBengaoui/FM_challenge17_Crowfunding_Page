@@ -4,7 +4,13 @@ import RewardPanel from "./RewardPanel";
 
 import cross_icon from "../images/icon-close-modal.svg";
 
-const BackPanel = ({ rewards, setRewards, setBackPanel, supportText }) => {
+const BackPanel = ({
+  rewards,
+  setRewards,
+  setBackPanel,
+  supportText,
+  isOpen,
+}) => {
   const exitDetailHandler = (e) => {
     const element = e.target;
     if (
@@ -16,7 +22,10 @@ const BackPanel = ({ rewards, setRewards, setBackPanel, supportText }) => {
     }
   };
   return (
-    <BackPanelContainer className="shadow" onClick={exitDetailHandler}>
+    <BackPanelContainer
+      className={`shadow ${isOpen ? "fadeIn" : "fadeOut"}`}
+      onClick={exitDetailHandler}
+    >
       <RewardContainer>
         <TopContainer>
           <h2>Back this project</h2>
@@ -56,6 +65,14 @@ const BackPanelContainer = styled.div`
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.5);
+  transition: all 0.5s ease-in-out;
+
+  .fadeOut {
+    opacity: 0;
+  }
+  .fadeIn {
+    opacity: 1;
+  }
 
   &::-webkit-scrollbar {
     width: 0.5rem;
