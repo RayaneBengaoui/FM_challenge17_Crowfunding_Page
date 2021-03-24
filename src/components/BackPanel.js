@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
+import { fade, fadeFromTop } from "../animation";
 
 import RewardPanel from "./RewardPanel";
 
@@ -23,10 +25,14 @@ const BackPanel = ({
   };
   return (
     <BackPanelContainer
-      className={`shadow ${isOpen ? "fadeIn" : "fadeOut"}`}
+      className="shadow"
       onClick={exitDetailHandler}
+      variants={fade}
+      initial="hidden"
+      animate="show"
+      exit="exit"
     >
-      <RewardContainer>
+      <RewardContainer variants={fadeFromTop}>
         <TopContainer>
           <h2>Back this project</h2>
 
@@ -56,7 +62,7 @@ const BackPanel = ({
   );
 };
 
-const BackPanelContainer = styled.div`
+const BackPanelContainer = styled(motion.div)`
   position: fixed;
   overflow-y: scroll;
   min-height: 100vh;
@@ -65,14 +71,6 @@ const BackPanelContainer = styled.div`
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.5);
-  transition: all 0.5s ease-in-out;
-
-  .fadeOut {
-    opacity: 0;
-  }
-  .fadeIn {
-    opacity: 1;
-  }
 
   &::-webkit-scrollbar {
     width: 0.5rem;
@@ -84,7 +82,7 @@ const BackPanelContainer = styled.div`
     background: white;
   }
 `;
-const RewardContainer = styled.div`
+const RewardContainer = styled(motion.div)`
   position: absolute;
   width: 45rem;
   left: 50%;

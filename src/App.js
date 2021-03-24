@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 import Nav from "./components/Nav";
 import ProjectInformation from "./components/ProjectInformation";
@@ -51,17 +52,17 @@ function App() {
           />
         </Content>
       </Main>
-      {backPanel ? (
-        <BackPanel
-          rewards={rewards}
-          setRewards={setRewards}
-          setBackPanel={setBackPanel}
-          supportText={data.supportText}
-          isOpen={backPanel}
-        />
-      ) : (
-        ""
-      )}
+      <AnimatePresence>
+        {backPanel && (
+          <BackPanel
+            rewards={rewards}
+            setRewards={setRewards}
+            setBackPanel={setBackPanel}
+            supportText={data.supportText}
+            isOpen={backPanel}
+          />
+        )}
+      </AnimatePresence>
     </Home>
   );
 }
