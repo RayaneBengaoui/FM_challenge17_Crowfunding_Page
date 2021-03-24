@@ -18,10 +18,11 @@ const RewardPanel = ({
   const numberInput = useRef(null);
 
   const handlePayment = () => {
-    // console.log(numberInput.current.value);
+    console.log(numberInput.current.value);
     // console.log(rewards);
     // console.log(id);
 
+    // Update the number of rewards in the BackPanel
     let rewards_copy = [...rewards];
     for (let key in rewards_copy) {
       if (rewards_copy[key].id === id) {
@@ -29,8 +30,17 @@ const RewardPanel = ({
       }
     }
     setRewards(rewards_copy);
+
+    // Update the number of Backers in the Dashboard
     setBackers((prevState) =>
-      numberWithCommas((+prevState.replace(",", "") + 1).toString())
+      numberWithCommas(+prevState.replace(",", "") + 1)
+    );
+
+    // Update the amount of money backed in the dashboard
+    setBackedMoney((prevState) =>
+      numberWithCommas(
+        +prevState.replace(",", "") + Number(numberInput.current.value)
+      )
     );
   };
 
