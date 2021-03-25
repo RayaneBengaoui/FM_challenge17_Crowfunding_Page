@@ -18,6 +18,7 @@ const RewardPanel = ({
 }) => {
   const [isToggled, setIsToggled] = useState(false);
   const [isValidInput, setIsValidInput] = useState(true);
+
   const numberInput = useRef(null);
 
   const handlePayment = () => {
@@ -30,10 +31,13 @@ const RewardPanel = ({
     let rewards_copy = [...rewards];
     for (let key in rewards_copy) {
       if (rewards_copy[key].id === id) {
-        rewards_copy[key].left -= "1";
+        rewards_copy[key].left -= 1;
+        rewards_copy[key].left = rewards_copy[key].left.toString();
       }
     }
     setRewards(rewards_copy);
+
+    console.log(rewards);
 
     // Update the number of Backers in the Dashboard
     setBackers((prevState) =>
@@ -52,7 +56,7 @@ const RewardPanel = ({
   };
 
   return (
-    <RewardContainer leftNumber={leftNumber}>
+    <RewardContainer leftNumber={leftNumber} isToggled={isToggled}>
       <RewardClose onClick={() => setIsToggled((prevToggle) => !prevToggle)}>
         <FlexContainerTop>
           <CircleButton isToggled={isToggled}>
@@ -88,10 +92,13 @@ const RewardPanel = ({
 const RewardContainer = styled.div`
   position: relative;
   border-radius: 10px;
-  border: solid lightgray 1px;
+
+  border: ${(props) =>
+    props.isToggled ? "solid hsl(176, 50%, 47%) 2px" : "solid lightgray 1px"};
 
   margin-bottom: 1.5rem;
   opacity: ${(props) => (props.leftNumber !== "0" ? "1" : "0.5")};
+  pointer-events: ${(props) => (props.leftNumber !== "0" ? "auto" : "none")};
 `;
 const RewardClose = styled.div`
   padding: 2rem 1.5rem;

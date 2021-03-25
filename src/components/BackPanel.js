@@ -50,9 +50,6 @@ const BackPanel = ({
         <p>{supportText}</p>
 
         <NoReward
-          id={0}
-          setRewards={setRewards}
-          rewards={rewards}
           setBackers={setBackers}
           setBackedMoney={setBackedMoney}
           setBackPanel={setBackPanel}

@@ -4,9 +4,6 @@ import { useState, useRef } from "react";
 import { numberWithCommas } from "../utils";
 
 const NoReward = ({
-  id,
-  setRewards,
-  rewards,
   setBackers,
   setBackedMoney,
   setBackPanel,
@@ -21,15 +18,6 @@ const NoReward = ({
       setIsValidInput(false);
       return;
     }
-
-    // Update the number of rewards in the BackPanel
-    let rewards_copy = [...rewards];
-    for (let key in rewards_copy) {
-      if (rewards_copy[key].id === id) {
-        rewards_copy[key].left -= "1";
-      }
-    }
-    setRewards(rewards_copy);
 
     // Update the number of Backers in the Dashboard
     setBackers((prevState) =>
@@ -48,7 +36,7 @@ const NoReward = ({
   };
 
   return (
-    <RewardContainer>
+    <RewardContainer isToggled={isToggled}>
       <RewardClose onClick={() => setIsToggled((prevToggle) => !prevToggle)}>
         <FlexContainerTop>
           <CircleButton isToggled={isToggled}>
@@ -83,7 +71,8 @@ const NoReward = ({
 const RewardContainer = styled.div`
   position: relative;
   border-radius: 10px;
-  border: solid lightgray 1px;
+  border: ${(props) =>
+    props.isToggled ? "solid hsl(176, 50%, 47%) 2px" : "solid lightgray 1px"};
 
   margin-bottom: 1.5rem;
 `;
