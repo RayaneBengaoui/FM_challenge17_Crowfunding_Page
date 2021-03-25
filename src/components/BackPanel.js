@@ -27,6 +27,7 @@ const BackPanel = ({
       setBackPanel(false);
     }
   };
+
   return (
     <BackPanelContainer
       className="shadow"

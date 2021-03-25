@@ -37,8 +37,6 @@ const RewardPanel = ({
     }
     setRewards(rewards_copy);
 
-    console.log(rewards);
-
     // Update the number of Backers in the Dashboard
     setBackers((prevState) =>
       numberWithCommas(+prevState.replace(",", "") + 1)
@@ -56,7 +54,11 @@ const RewardPanel = ({
   };
 
   return (
-    <RewardContainer leftNumber={leftNumber} isToggled={isToggled}>
+    <RewardContainer
+      leftNumber={leftNumber}
+      isToggled={isToggled}
+      className="reward"
+    >
       <RewardClose onClick={() => setIsToggled((prevToggle) => !prevToggle)}>
         <FlexContainerTop>
           <CircleButton isToggled={isToggled}>

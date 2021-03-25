@@ -59,6 +59,27 @@ const Mobile = styled.div`
   }
 `;
 const Desktop = styled.ul`
+  li {
+    position: relative;
+    &:after {
+      z-index: 3000;
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      bottom: -3px;
+      left: 0;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.3s ease-in-out;
+    }
+
+    :hover::after {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+  }
   @media (max-width: 599px) {
     display: none;
   }
