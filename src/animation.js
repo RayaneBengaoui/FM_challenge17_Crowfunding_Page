@@ -26,7 +26,7 @@ export const fadeFromTopPercentage = {
     opacity: 0,
   },
   show: {
-    top: "10%",
+    top: "5%",
 
     opacity: 1,
     transition: {

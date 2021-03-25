@@ -34,6 +34,7 @@ const RewardContainer = styled.div`
   padding: 2rem 1.5rem;
   margin-bottom: 1.5rem;
   opacity: ${(props) => (props.leftNumber !== "0" ? "1" : "0.5")};
+  pointer-events: ${(props) => (props.leftNumber !== "0" ? "auto" : "none")};
 `;
 
 const FlexContainerTop = styled.div`
@@ -77,6 +78,12 @@ const SelectButton = styled.button`
   color: white;
   border-radius: 3rem;
   font-weight: 700;
+  transition: background-color 0.4s ease;
+
+  :hover {
+    background-color: ${(props) =>
+      props.leftNumber !== "0" ? "hsl(176, 72%, 28%)" : ""};
+  }
 
   @media (max-width: 350px) {
     padding: 1rem 1rem;

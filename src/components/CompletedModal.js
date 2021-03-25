@@ -76,6 +76,12 @@ const SubmitButton = styled.button`
   color: white;
   border-radius: 3rem;
   font-weight: 700;
+
+  transition: background-color 0.4s ease;
+
+  :hover {
+    background-color: hsl(176, 72%, 28%);
+  }
 `;
 
 export default CompletedModal;

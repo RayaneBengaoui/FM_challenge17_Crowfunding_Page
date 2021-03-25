@@ -105,8 +105,8 @@ const RewardContainer = styled(motion.div)`
   top: 10%;
   background-color: white;
   border-radius: 10px;
-
   padding: 2.5rem 2rem;
+  margin-bottom: 20rem;
 
   > p {
     padding-bottom: 2rem;

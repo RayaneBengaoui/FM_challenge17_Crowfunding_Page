@@ -105,8 +105,17 @@ const RewardClose = styled.div`
   padding-bottom: 1rem;
   cursor: pointer;
 
+  :hover {
+    .outer-circle {
+      border-color: hsl(176, 50%, 47%);
+    }
+    h3 {
+      color: hsl(176, 50%, 47%);
+    }
+  }
+
   @media (min-width: 599px) {
-    p {
+    > p {
       padding-left: 3rem;
     }
   }
@@ -258,6 +267,11 @@ const SubmitButton = styled.button`
   color: white;
   border-radius: 3rem;
   font-weight: 700;
+  transition: background-color 0.4s ease;
+
+  :hover {
+    background-color: hsl(176, 72%, 28%);
+  }
 
   @media (min-width: 750px) {
     flex-basis: 35%;

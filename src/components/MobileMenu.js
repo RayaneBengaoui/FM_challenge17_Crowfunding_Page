@@ -33,9 +33,9 @@ const OptionContainer = styled(motion.div)`
   margin: auto;
   margin-top: 6.5rem;
   border-radius: 10px;
-  top: 5rem;
 
   background-color: white;
+  overflow: hidden;
   ul {
     color: black;
 
@@ -43,6 +43,12 @@ const OptionContainer = styled(motion.div)`
       padding: 1.5rem;
       font-size: 1.2rem;
       font-weight: 700;
+      transition: background-color 0.4s ease;
+
+      :hover {
+        background-color: hsl(176, 72%, 28%);
+        color: white;
+      }
 
       &:nth-child(-n + 2) {
         border-bottom: solid lightgray 1px;
