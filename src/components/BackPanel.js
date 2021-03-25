@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { fade, fadeFromTopPercentage } from "../animation";
 
 import RewardPanel from "./RewardPanel";
+import NoReward from "./NoReward";
 
 import cross_icon from "../images/icon-close-modal.svg";
 
@@ -46,8 +47,17 @@ const BackPanel = ({
             alt="exit cross"
           />
         </TopContainer>
-
         <p>{supportText}</p>
+
+        <NoReward
+          id={0}
+          setRewards={setRewards}
+          rewards={rewards}
+          setBackers={setBackers}
+          setBackedMoney={setBackedMoney}
+          setBackPanel={setBackPanel}
+          setCompletedModal={setCompletedModal}
+        />
         {rewards.map((reward) => {
           return (
             <RewardPanel

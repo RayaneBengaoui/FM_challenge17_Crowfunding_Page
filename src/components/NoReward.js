@@ -3,12 +3,8 @@ import { useState, useRef } from "react";
 
 import { numberWithCommas } from "../utils";
 
-const RewardPanel = ({
+const NoReward = ({
   id,
-  name,
-  minimumPrice,
-  description,
-  leftNumber,
   setRewards,
   rewards,
   setBackers,
@@ -52,7 +48,7 @@ const RewardPanel = ({
   };
 
   return (
-    <RewardContainer leftNumber={leftNumber}>
+    <RewardContainer>
       <RewardClose onClick={() => setIsToggled((prevToggle) => !prevToggle)}>
         <FlexContainerTop>
           <CircleButton isToggled={isToggled}>
@@ -61,22 +57,21 @@ const RewardPanel = ({
             </div>
           </CircleButton>
           <FlexContainer>
-            <h3>{name}</h3>
-            <PledgeText>{`Pledge $${minimumPrice} or more`}</PledgeText>
+            <h3>Pledge with no reward</h3>
           </FlexContainer>
         </FlexContainerTop>
-        <p>{description}</p>
-
-        <LeftText>
-          <span>{leftNumber}</span>left
-        </LeftText>
+        <p>
+          Choose to support us without a reward if you simply believe in our
+          project. As a backer, you will be signed up to receive product updates
+          via email.
+        </p>
       </RewardClose>
       <RewardOpen isToggled={isToggled}>
         <p>Enter your pledge</p>
         <SubmitContainer>
           <InputContainer isValidInput={isValidInput}>
             <p>$</p>
-            <input type="number" ref={numberInput} min={minimumPrice} />
+            <input type="number" ref={numberInput} min="1" />
           </InputContainer>
           <SubmitButton onClick={handlePayment}>Continue</SubmitButton>
         </SubmitContainer>
@@ -91,7 +86,6 @@ const RewardContainer = styled.div`
   border: solid lightgray 1px;
 
   margin-bottom: 1.5rem;
-  opacity: ${(props) => (props.leftNumber !== "0" ? "1" : "0.5")};
 `;
 const RewardClose = styled.div`
   padding: 2rem 1.5rem;
@@ -140,30 +134,6 @@ const FlexContainer = styled.div`
 
   @media (min-width: 599px) {
     flex-direction: row;
-  }
-`;
-
-const PledgeText = styled.p`
-  color: hsl(176, 50%, 47%);
-  font-weight: 500;
-  @media (min-width: 599px) {
-    padding-left: 1rem;
-  }
-`;
-const LeftText = styled.p`
-  display: flex;
-  align-items: center;
-  padding-top: 1.5rem;
-  span {
-    font-weight: 700;
-    color: black;
-    font-size: 2rem;
-    padding-right: 0.4rem;
-  }
-  @media (min-width: 750px) {
-    position: absolute;
-    top: -0.5rem;
-    right: 1.5rem;
   }
 `;
 
@@ -257,4 +227,4 @@ const SubmitButton = styled.button`
   }
 `;
 
-export default RewardPanel;
+export default NoReward;
