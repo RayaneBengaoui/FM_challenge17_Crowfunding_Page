@@ -82,7 +82,12 @@ const RewardPanel = ({
         <SubmitContainer>
           <InputContainer isValidInput={isValidInput}>
             <p>$</p>
-            <input type="number" ref={numberInput} min={minimumPrice} />
+            <input
+              type="number"
+              ref={numberInput}
+              min={minimumPrice}
+              placeholder={minimumPrice}
+            />
           </InputContainer>
           <SubmitButton onClick={handlePayment}>Continue</SubmitButton>
         </SubmitContainer>
@@ -243,6 +248,7 @@ const InputContainer = styled.div`
     width: 100%;
     font-weight: 700;
     color: black;
+    min-width: 2rem;
 
     /* Chrome, Safari, Edge, Opera */
     ::-webkit-outer-spin-button,
@@ -263,16 +269,20 @@ const InputContainer = styled.div`
   }
 `;
 const SubmitButton = styled.button`
-  flex-basis: 60%;
   padding: 1rem 2rem;
   background-color: hsl(176, 50%, 47%);
   color: white;
   border-radius: 3rem;
   font-weight: 700;
   transition: background-color 0.4s ease;
+  flex-basis: 60%;
 
   :hover {
     background-color: hsl(176, 72%, 28%);
+  }
+
+  @media (max-width: 375px) {
+    padding: 1rem 1rem;
   }
 
   @media (min-width: 750px) {

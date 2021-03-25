@@ -59,6 +59,7 @@ const BackPanel = ({
         {rewards.map((reward) => {
           return (
             <RewardPanel
+              key={reward.id}
               id={reward.id}
               name={reward.name}
               minimumPrice={reward.minimumPrice}

@@ -59,7 +59,7 @@ const NoReward = ({
         <SubmitContainer>
           <InputContainer isValidInput={isValidInput}>
             <p>$</p>
-            <input type="number" ref={numberInput} min="1" />
+            <input type="number" ref={numberInput} min="1" placeholder="1" />
           </InputContainer>
           <SubmitButton onClick={handlePayment}>Continue</SubmitButton>
         </SubmitContainer>
@@ -193,6 +193,7 @@ const InputContainer = styled.div`
     width: 100%;
     font-weight: 700;
     color: black;
+    min-width: 2rem;
 
     /* Chrome, Safari, Edge, Opera */
     ::-webkit-outer-spin-button,
@@ -224,7 +225,9 @@ const SubmitButton = styled.button`
   :hover {
     background-color: hsl(176, 72%, 28%);
   }
-
+  @media (max-width: 375px) {
+    padding: 1rem 1rem;
+  }
   @media (min-width: 750px) {
     flex-basis: 35%;
   }

@@ -62,7 +62,6 @@ const Desktop = styled.ul`
   li {
     position: relative;
     &:after {
-      z-index: 3000;
       content: "";
       position: absolute;
       width: 100%;

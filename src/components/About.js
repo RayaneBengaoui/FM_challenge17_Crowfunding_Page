@@ -18,6 +18,7 @@ const About = ({
       {rewards.map((reward) => {
         return (
           <Reward
+            key={reward.id}
             id={reward.id}
             name={reward.name}
             minimumPrice={reward.minimumPrice}
