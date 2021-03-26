@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { fade, fadeFromTopPercentage } from "../animation";
@@ -17,6 +18,31 @@ const BackPanel = ({
   setBackedMoney,
   setCompletedModal,
 }) => {
+  const initializeToggles = () => {
+    const toggleStates = [];
+    toggleStates.push(false);
+    for (let i in rewards) {
+      toggleStates.push(false);
+    }
+
+    return toggleStates;
+  };
+
+  const [toggles, setToggles] = useState(initializeToggles());
+
+  const handleToggles = (id) => {
+    const togglesCopy = [...toggles];
+
+    for (let i = 0; i < togglesCopy.length; i++) {
+      if (i === id) {
+        togglesCopy[i] = true;
+      } else {
+        togglesCopy[i] = false;
+      }
+    }
+    setToggles(togglesCopy);
+  };
+
   const exitDetailHandler = (e) => {
     const element = e.target;
     if (
@@ -55,6 +81,8 @@ const BackPanel = ({
           setBackedMoney={setBackedMoney}
           setBackPanel={setBackPanel}
           setCompletedModal={setCompletedModal}
+          handleToggles={handleToggles}
+          toggles={toggles}
         />
         {rewards.map((reward) => {
           return (
@@ -71,6 +99,8 @@ const BackPanel = ({
               setBackedMoney={setBackedMoney}
               setBackPanel={setBackPanel}
               setCompletedModal={setCompletedModal}
+              toggles={toggles}
+              handleToggles={handleToggles}
             />
           );
         })}

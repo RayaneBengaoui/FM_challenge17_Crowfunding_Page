@@ -8,6 +8,8 @@ const NoReward = ({
   setBackedMoney,
   setBackPanel,
   setCompletedModal,
+  handleToggles,
+  toggles,
 }) => {
   const [isToggled, setIsToggled] = useState(false);
   const [isValidInput, setIsValidInput] = useState(true);
@@ -36,8 +38,8 @@ const NoReward = ({
   };
 
   return (
-    <RewardContainer isToggled={isToggled}>
-      <RewardClose onClick={() => setIsToggled((prevToggle) => !prevToggle)}>
+    <RewardContainer isToggled={toggles[0]}>
+      <RewardClose onClick={() => handleToggles(0)}>
         <FlexContainerTop>
           <CircleButton isToggled={isToggled}>
             <div className="outer-circle">
@@ -54,7 +56,7 @@ const NoReward = ({
           via email.
         </p>
       </RewardClose>
-      <RewardOpen isToggled={isToggled}>
+      <RewardOpen isToggled={toggles[0]}>
         <p>Enter your pledge</p>
         <SubmitContainer>
           <InputContainer isValidInput={isValidInput}>

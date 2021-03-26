@@ -15,8 +15,9 @@ const RewardPanel = ({
   setBackedMoney,
   setBackPanel,
   setCompletedModal,
+  toggles,
+  handleToggles,
 }) => {
-  const [isToggled, setIsToggled] = useState(false);
   const [isValidInput, setIsValidInput] = useState(true);
 
   const numberInput = useRef(null);
@@ -56,12 +57,13 @@ const RewardPanel = ({
   return (
     <RewardContainer
       leftNumber={leftNumber}
-      isToggled={isToggled}
+      isToggled={toggles[id]}
       className="reward"
     >
-      <RewardClose onClick={() => setIsToggled((prevToggle) => !prevToggle)}>
+      {/* <RewardClose onClick={() => setIsToggled((prevToggle) => !prevToggle)}> */}
+      <RewardClose onClick={() => handleToggles(id)}>
         <FlexContainerTop>
-          <CircleButton isToggled={isToggled}>
+          <CircleButton isToggled={toggles[id]}>
             <div className="outer-circle">
               <div className="inner-circle"></div>
             </div>
@@ -77,7 +79,7 @@ const RewardPanel = ({
           <span>{leftNumber}</span>left
         </LeftText>
       </RewardClose>
-      <RewardOpen isToggled={isToggled}>
+      <RewardOpen isToggled={toggles[id]}>
         <p>Enter your pledge</p>
         <SubmitContainer>
           <InputContainer isValidInput={isValidInput}>
